@@ -10,7 +10,9 @@ variables:
   imageName: 'arschles/athens-proxy:$(build.buildId)'
 
 steps:
+- script: go test ./...
+  displayName: 'run tests'
 - script: docker build -f cmd/proxy/Dockerfile -t $(imageName) .
   displayName: 'docker build'
 - script: docker push $(imageName)
-  displayName: 'docker push'
+  displayName: 'docker push $(imageName)'
