@@ -7,7 +7,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'proxy:$(build.buildId)'
+  imageName: 'gomods/proxy:$(build.buildId)'
 
 steps:
 - script: docker build -f cmd/proxy/Dockerfile -t $(imageName) .
